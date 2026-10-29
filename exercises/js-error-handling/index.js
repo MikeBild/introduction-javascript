@@ -7,7 +7,7 @@
 //
 // Aufgabe
 // 1. parseQuantity rejected heute mit einem nackten String. Liefere stattdessen ein Result
-//    mit sprechendem Error Code: 'NOT_A_NUMBER', 'NOT_AN_INTEGER' oder 'TOO_SMALL'.
+//    mit sprechendem Fehlercode: 'NOT_A_NUMBER', 'NOT_AN_INTEGER' oder 'TOO_SMALL'.
 //    Erwartbare Fehler gehören in den Rückgabewert, nicht in throw.
 // 2. reserve zieht Bestand ab und liefert ein Result mit 'OUT_OF_STOCK', wenn er fehlt.
 //    Das übergebene Produkt bleibt unverändert.

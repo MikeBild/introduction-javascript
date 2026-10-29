@@ -1,5 +1,5 @@
-// Misst den Heap vor und nach 200 000 verschiedenen Aufrufen.
-// Start: node --expose-gc exercises/js-performance-memory/measure.ts
+// Misst den Heap vor und nach 200.000 verschiedenen Aufrufen.
+// Startpunkt messen: node --expose-gc exercises/js-performance-memory/measure.ts
 // Mit der Lösung vergleichen: node --expose-gc exercises/js-performance-memory/measure.ts solution
 import { memoize as startMemoize } from './index.ts'
 import { memoize as solutionMemoize } from './solution/index.ts'

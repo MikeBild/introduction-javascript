@@ -1,5 +1,5 @@
 // Dünner Node-Adapter: übersetzt node:http in Request/Response und zurück.
-// Start: node exercises/js-runtimes/serve-node.ts – Node führt TypeScript direkt aus.
+// Starten: node exercises/js-runtimes/serve-node.ts – Node führt TypeScript direkt aus.
 // Mit der Lösung: node exercises/js-runtimes/serve-node.ts solution
 import { createServer } from 'node:http'
 import { handle as startHandle } from './index.ts'

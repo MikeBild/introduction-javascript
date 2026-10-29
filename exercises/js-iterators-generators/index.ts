@@ -5,7 +5,7 @@
 // 1. naturals(): unendlicher Generator 1, 2, 3, … (function* mit while (true)).
 // 2. firstEvenSquares(n): filter (gerade) und map (Quadrat) lazy per Iterator Helpers,
 //    dann take(n) und toArray(). Ohne take würde das nie enden.
-// 3. allOrders(fetchPage): async Generator, der eine paginierte API Seite für Seite
+// 3. allOrders(fetchPage): Async-Generator, der eine paginierte API Seite für Seite
 //    abfragt (cursor → next) und jede Bestellung einzeln liefert. Er stoppt, wenn next fehlt.
 //    Aufrufer lesen ihn mit for await … of.
 //

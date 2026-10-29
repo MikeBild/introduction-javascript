@@ -2,7 +2,7 @@
   "name": "introduction-javascript",
   "version": "1.0.0",
   "private": true,
-  "description": "Übungen zum Workshop JavaScript & TypeScript – durchgehendes Beispiel: Werkstatt-Shop",
+  "description": "Übungen zu den Workshops „JavaScript und TypeScript von Grund auf“ und „TypeScript für JavaScript-Teams“ – durchgehendes Beispiel: Werkstatt-Shop",
   "type": "module",
   "engines": {
     "node": ">=26"
@@ -34,7 +34,7 @@
   "dependencies": {
     "zod": "^4.6.7"
   },
-  "homepage": "https://workshops.mikebild.dev",
+  "homepage": "https://workshops.mikebild.dev/w/javascript-typescript/remote/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MikeBild/introduction-javascript.git"

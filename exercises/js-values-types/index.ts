@@ -3,7 +3,7 @@
 //
 // Aufgabe
 // 1. readRetries liest die Zahl der Wiederholungen beim Bezahlen. Der Test zeigt:
-//    { retries: 0 } wird zu 3, weil || die 0 als "falsy" verwirft. Repariere es mit ??.
+//    { retries: 0 } wird zu 3, weil || die 0 als „falsy“ verwirft. Repariere es mit ??.
 // 2. Schreib toCents: "12.99" → 1299. Achtung, 12.99 * 100 ist nicht genau 1299.
 // 3. Schreib isShallowEqual für zwei Produkte: gleiche Keys, Werte per Object.is gleich.
 //

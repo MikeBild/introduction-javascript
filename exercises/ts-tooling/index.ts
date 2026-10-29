@@ -9,7 +9,7 @@
 // 2. noUncheckedIndexedAccess macht aus items[0] den Type OrderItem | undefined.
 //    firstItemPrice umgeht das mit !. Entferne das ! und behandle den leeren Fall.
 // 3. Schau dir die Scripts in der package.json an: typecheck, test, check.
-//    Ein check-Script, das lokal und in CI gleich läuft, beendet die Diskussion "bei mir geht's".
+//    Ein check-Script, das lokal und in CI gleich läuft, beendet die Diskussion „bei mir geht’s“.
 //    ESLint und Prettier ergänzt du in deinem Projekt genauso als Scripts; dieses Repo
 //    verzichtet darauf, um mit vier Paketen auszukommen.
 //
