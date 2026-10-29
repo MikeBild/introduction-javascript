@@ -1,4 +1,4 @@
-# Übungen: JavaScript & TypeScript
+# Übungen: JavaScript und TypeScript
 
 Übungs-Repo zu den Workshops „JavaScript und TypeScript von Grund auf“ und „TypeScript für JavaScript-Teams“;
 der Workshop „Fullstack mit TypeScript, Node.js, GraphQL und React in 6 Tagen“ nutzt einen Teil der Lektionen.
