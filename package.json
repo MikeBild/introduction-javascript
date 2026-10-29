@@ -1,0 +1,38 @@
+{
+  "name": "introduction-javascript",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Übungen zum Workshop JavaScript & TypeScript – durchgehendes Beispiel: Werkstatt-Shop",
+  "type": "module",
+  "engines": {
+    "node": ">=26"
+  },
+  "imports": {
+    "#shop": "./shop/index.ts",
+    "#ex/*": {
+      "solution": "./exercises/*/solution/index.ts",
+      "default": "./exercises/*/index.ts"
+    }
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:solution": "vitest run --mode solution",
+    "typecheck": "tsc --noEmit",
+    "typecheck:start": "tsc --noEmit -p tsconfig.start.json",
+    "check": "npm run typecheck && npm run test:solution"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  },
+  "dependencies": {
+    "zod": "^4.6.7"
+  },
+  "homepage": "https://workshops.mikebild.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikeBild/introduction-javascript.git"
+  }
+}
