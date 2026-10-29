@@ -12,7 +12,7 @@
 // 4. Bonus: Erzeuge die Type Declarations und schau sie dir an:
 //    npx tsc exercises/ts-library-design/solution/index.ts --declaration --emitDeclarationOnly
 //      --allowImportingTsExtensions --outDir dist
-//    Lies dist/index.d.ts: Das ist alles, was Nutzer deiner Library sehen.
+//    Lies dist/index.d.ts: Das ist alles, was Nutzende deiner Library sehen.
 //
 // Prüfen: npm test -- ts-library-design und npm run typecheck:start
 
