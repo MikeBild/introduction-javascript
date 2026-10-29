@@ -8,7 +8,7 @@ Alle Übungen arbeiten mit demselben durchgehenden Beispiel, dem Werkstatt-Shop.
 ## Was du lernst
 
 - Listen mit map, filter und reduce verarbeiten und Objekte über Kopien ändern
-- Generic Functions mit Constraints schreiben, die Type-Informationen erhalten
+- Generische Funktionen mit Constraints schreiben, die Type-Informationen erhalten
 - Externe Daten mit zod validieren und die Types aus dem Schema ableiten
 
 ## Voraussetzungen
@@ -140,3 +140,7 @@ Node 26 führt TypeScript-Dateien direkt aus, z. B. `node exercises/js-runtimes/
 - Workshop: [„TypeScript für JavaScript-Teams“](https://workshops.mikebild.dev/w/typescript/remote/)
 - Workshop: [„Fullstack mit TypeScript, Node.js, GraphQL und React in 6 Tagen“](https://workshops.mikebild.dev/w/fullstack/onsite/)
 - Folien: [slides.mikebild.dev/introduction-javascript-typescript](https://slides.mikebild.dev/introduction-javascript-typescript.html)
+
+## Lizenz
+
+[MIT](LICENSE)
