@@ -1,18 +1,10 @@
-import { describe, expect, expectTypeOf, it } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { products } from '#shop'
-import {
-  findProductOrThrow,
-  parseQuantity,
-  ProductNotFoundError,
-  reserve,
-  type QuantityError,
-  type Result,
-} from '#ex/js-error-handling'
+import { findProductOrThrow, parseQuantity, ProductNotFoundError, reserve } from '#ex/js-error-handling'
 
 describe('parseQuantity', () => {
   it('liefert ein Result statt eines Promise', () => {
     expect(parseQuantity('3')).toEqual({ ok: true, value: 3 })
-    expectTypeOf(parseQuantity).returns.toEqualTypeOf<Result<number, QuantityError>>()
   })
   it.each([
     ['abc', 'NOT_A_NUMBER'],
@@ -38,7 +30,7 @@ describe('reserve', () => {
 
 describe('findProductOrThrow', () => {
   it('findet vorhandene Produkte', () => {
-    expect(findProductOrThrow(products(), 'p-2').name).toBe('Schraubendreher-Set')
+    expect(findProductOrThrow(products(), 'p-2')).toMatchObject({ name: 'Schraubendreher-Set' })
   })
   it('wirft einen ProductNotFoundError mit productId', () => {
     try {

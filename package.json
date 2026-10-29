@@ -9,6 +9,10 @@
   },
   "imports": {
     "#shop": "./shop/index.ts",
+    "#ex/js-error-handling": {
+      "solution": "./exercises/js-error-handling/solution/index.js",
+      "default": "./exercises/js-error-handling/index.js"
+    },
     "#ex/*": {
       "solution": "./exercises/*/solution/index.ts",
       "default": "./exercises/*/index.ts"

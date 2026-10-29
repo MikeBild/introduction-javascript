@@ -34,6 +34,7 @@ npm ci
 ## So arbeitest du mit einer Übung
 
 1. Öffne `exercises/<lektion>/index.ts`. Oben steht die Aufgabe, darunter der Startpunkt mit `TODO`s.
+   Ausnahme: `js-error-handling` ist reines JavaScript ohne Typen, dort arbeitest du in `index.js`.
 2. Starte die Tests für diese Lektion:
    ```bash
    npm test -- ts-generics            # einmal
@@ -51,7 +52,7 @@ npm ci
    ```
 
 Wie die Umschaltung funktioniert: Die Tests importieren `#ex/<lektion>`. Die `imports` in der
-[`package.json`](package.json) zeigen damit auf `index.ts` – mit der Condition `solution` auf `solution/index.ts`.
+[`package.json`](package.json) zeigen damit auf `index.ts` (bei `js-error-handling` auf `index.js`) – mit der Condition `solution` auf die Lösung.
 `npm run typecheck` prüft die Lösungen, `npm run typecheck:start` deinen Startpunkt.
 
 ## Übersicht
