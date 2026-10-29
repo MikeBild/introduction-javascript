@@ -9,7 +9,7 @@
 //    kleinen Pure Functions zusammengesetzt.
 // 4. stampOrder liest die Uhr direkt (new Date()) – ein Side Effect mitten im Core.
 //    Gib die Uhr als Parameter hinein, damit die Funktion pur und testbar wird.
-//    Überleg dir: Warum darf man stampOrder nie memoizen?
+//    Überleg dir: Warum darfst du stampOrder nie memoizen?
 //
 // Prüfen: npm test -- js-functional-patterns
 

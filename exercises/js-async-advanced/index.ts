@@ -2,7 +2,7 @@
 // Dauer: etwa 25 Minuten
 //
 // Aufgabe
-// 1. tick(items, intervalMs, signal?): async Generator, der pro Tick eine Bestellung liefert.
+// 1. tick(items, intervalMs, signal?): Async-Generator, der pro Tick eine Bestellung liefert.
 //    Nutze setInterval aus node:timers/promises mit for await und einen eigenen
 //    AbortController, den du nach dem letzten Element abbrichst. Ein äußeres signal
 //    beendet den Generator vorzeitig (AbortSignal.any).

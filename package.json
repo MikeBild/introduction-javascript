@@ -34,7 +34,7 @@
   "dependencies": {
     "zod": "^4.6.7"
   },
-  "homepage": "https://workshops.mikebild.dev",
+  "homepage": "https://workshops.mikebild.dev/w/javascript-typescript/remote/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MikeBild/introduction-javascript.git"
