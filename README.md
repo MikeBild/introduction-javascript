@@ -8,7 +8,7 @@ Alle Übungen arbeiten mit demselben durchgehenden Beispiel, dem Werkstatt-Shop.
 ## Was du lernst
 
 - Listen mit map, filter und reduce verarbeiten und Objekte über Kopien ändern
-- Generische Funktionen mit Constraints schreiben, die Type-Informationen erhalten
+- Generic Functions mit Constraints schreiben, die Type-Informationen erhalten
 - Externe Daten mit zod validieren und die Types aus dem Schema ableiten
 
 ## Voraussetzungen

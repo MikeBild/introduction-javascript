@@ -2,7 +2,7 @@
 // Dauer: etwa 25 Minuten
 //
 // Aufgabe: Schreib die Tests für index.ts. Ersetze jedes it.todo durch einen echten Test.
-// - Teste Verhalten (Ergebnis, Fehler), nicht wie die Funktion intern arbeitet.
+// - Teste Behavior (Ergebnis, Fehler), nicht wie die Funktion intern arbeitet.
 // - Async: await expect(…).resolves / .rejects.toThrow('…') statt done-Callbacks.
 // - waitForPayment wartet echte 3 Sekunden. Nutze Fake Timers:
 //   vi.useFakeTimers() und await vi.advanceTimersByTimeAsync(3000).

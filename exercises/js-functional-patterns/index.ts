@@ -6,7 +6,7 @@
 //    demselben Argument ruft fn nicht noch einmal auf.
 // 2. pipe: setzt Funktionen von links nach rechts zusammen (reduce).
 // 3. checkoutTotal: subtotal → 10 % Rabatt → 19 % MwSt, nur aus pipe und den
-//    kleinen reinen Funktionen zusammengesetzt.
+//    kleinen Pure Functions zusammengesetzt.
 // 4. stampOrder liest die Uhr direkt (new Date()) – ein Side Effect mitten im Core.
 //    Gib die Uhr als Parameter hinein, damit die Funktion pur und testbar wird.
 //    Überleg dir: Warum darfst du stampOrder nie memoizen?

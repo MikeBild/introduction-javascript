@@ -2,7 +2,7 @@
 // Dauer: etwa 20 Minuten
 //
 // Aufgabe: Die Funktionen laufen, aber any wirft jede Type-Information weg.
-// Schreib sie als generische Funktionen ohne any:
+// Schreib sie als Generic Functions ohne any:
 // 1. last<Item>(items): letztes Element oder undefined.
 // 2. groupBy<Item, Key extends PropertyKey>(items, keyOf): Partial<Record<Key, Item[]>>,
 //    z. B. Bestellungen nach Status gruppieren.
