@@ -70,8 +70,8 @@ die Spalte **Fullstack** die des Workshops „Fullstack mit TypeScript, Node.js,
 | 12 | Tag 2 | Ungültige States unmöglich machen | [`ts-narrowing`](exercises/ts-narrowing/) | 20 Min | ✓ | ✓ |
 | 13 | Tag 2 | Generics erhalten, was any wegwirft | [`ts-generics`](exercises/ts-generics/) | 20 Min | ✓ | ✓ |
 | 14 | Tag 2 | Types ableiten statt kopieren | [`ts-utility-types`](exercises/ts-utility-types/) | 20 Min | ✓ |  |
-| 15 | Tag 2 | Reine Funktionen im Core, Side Effects am Rand | [`js-functional-patterns`](exercises/js-functional-patterns/) | 20 Min |  |  |
-| 16 | Tag 3 | Mit Vitest Verhalten testen statt Details | [`js-testing-vitest`](exercises/js-testing-vitest/) | 25 Min | Zusatzkapitel |  |
+| 15 | Tag 2 | Pure Functions im Core, Side Effects am Rand | [`js-functional-patterns`](exercises/js-functional-patterns/) | 20 Min |  |  |
+| 16 | Tag 3 | Mit Vitest Behavior testen statt Details | [`js-testing-vitest`](exercises/js-testing-vitest/) | 25 Min | Zusatzkapitel |  |
 | 17 | Tag 3 | Generators liefern Werte erst auf Nachfrage | [`js-iterators-generators`](exercises/js-iterators-generators/) | 20 Min |  |  |
 | 18 | Tag 3 | Async-Arbeit abbrechen, begrenzen und streamen | [`js-async-advanced`](exercises/js-async-advanced/) | 25 Min |  |  |
 | 19 | Tag 3 | Types berechnen, wo es Bugs verhindert | [`ts-advanced-types`](exercises/ts-advanced-types/) | 25 Min | ✓ |  |
