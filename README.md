@@ -136,9 +136,9 @@ Node 26 führt TypeScript-Dateien direkt aus, z. B. `node exercises/js-runtimes/
 
 ## Workshop und Folien
 
+- Workshop: [„Fullstack mit TypeScript, Node.js, GraphQL und React in 6 Tagen“](https://workshops.mikebild.dev/w/fullstack/onsite/)
 - Workshop: [„JavaScript und TypeScript von Grund auf“](https://workshops.mikebild.dev/w/javascript-typescript/remote/)
 - Workshop: [„TypeScript für JavaScript-Teams“](https://workshops.mikebild.dev/w/typescript/remote/)
-- Workshop: [„Fullstack mit TypeScript, Node.js, GraphQL und React in 6 Tagen“](https://workshops.mikebild.dev/w/fullstack/onsite/)
 - Folien: [slides.mikebild.dev/introduction-javascript-typescript](https://slides.mikebild.dev/introduction-javascript-typescript.html)
 
 ## Lizenz
