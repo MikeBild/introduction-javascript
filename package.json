@@ -2,7 +2,7 @@
   "name": "introduction-javascript",
   "version": "1.0.0",
   "private": true,
-  "description": "Übungen zu den Workshops „JavaScript und TypeScript von Grund auf“ und „TypeScript für JavaScript-Teams“ – durchgehendes Beispiel: Werkstatt-Shop",
+  "description": "Exercises for the JavaScript and TypeScript workshops – running example: the workshop shop",
   "type": "module",
   "engines": {
     "node": ">=26"
