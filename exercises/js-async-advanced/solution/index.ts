@@ -11,7 +11,7 @@ export async function* tick<Item>(items: readonly Item[], intervalMs: number, si
       if (index >= items.length) done.abort()
     }
   } catch (error) {
-    if (!stop.aborted) throw error // Abbruch ist ein reguläres Ende, kein Fehler
+    if (!stop.aborted) throw error // an abort is a regular end, not an error
   }
 }
 

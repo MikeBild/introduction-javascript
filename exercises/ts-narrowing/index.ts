@@ -1,13 +1,13 @@
-// Lektion ts-narrowing: Ungültige States unmöglich machen
-// Dauer: etwa 20 Minuten
+// Lesson ts-narrowing: Make invalid states impossible
+// Duration: about 20 minutes
 //
-// Aufgabe: OrdersState beschreibt das Laden der Bestellliste als Discriminated Union.
-// 1. Ergänze den State { status: 'idle' } (noch nicht geladen).
-// 2. Führ npm run typecheck aus: assertNever meldet jeden switch, der idle nicht kennt.
-//    render liefert für idle 'Noch nicht geladen', icon liefert 'clock'.
-// 3. Schreib den Type Guard isSuccess, damit filter(isSuccess) SuccessState[] liefert.
+// Exercise: OrdersState describes loading the order list as a discriminated union.
+// 1. Add the state { status: 'idle' } (not loaded yet).
+// 2. Run npm run typecheck: assertNever flags every switch that does not know idle.
+//    render returns 'Noch nicht geladen' for idle, icon returns 'clock'.
+// 3. Write the type guard isSuccess so that filter(isSuccess) returns SuccessState[].
 //
-// Prüfen: npm test -- ts-narrowing und npm run typecheck:start
+// Check: npm test -- ts-narrowing and npm run typecheck:start
 
 import type { Order } from '#shop'
 

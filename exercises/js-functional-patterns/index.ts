@@ -1,17 +1,17 @@
-// Lektion js-functional-patterns: Pure Functions im Core, Side Effects am Rand
-// Dauer: etwa 20 Minuten
+// Lesson js-functional-patterns: Pure Functions in the core, side effects at the edge
+// Duration: about 20 minutes
 //
-// Aufgabe
-// 1. memoize: typisierte Funktion mit Map als Cache. Ein zweiter Aufruf mit
-//    demselben Argument ruft fn nicht noch einmal auf.
-// 2. pipe: setzt Funktionen von links nach rechts zusammen (reduce).
-// 3. checkoutTotal: subtotal → 10 % Rabatt → 19 % MwSt, nur aus pipe und den
-//    kleinen Pure Functions zusammengesetzt.
-// 4. stampOrder liest die Uhr direkt (new Date()) – ein Side Effect mitten im Core.
-//    Gib die Uhr als Parameter hinein, damit die Funktion pur und testbar wird.
-//    Überleg dir: Warum darfst du stampOrder nie memoizen?
+// Exercise
+// 1. memoize: typed function with a Map as cache. A second call with
+//    the same argument does not call fn again.
+// 2. pipe: composes functions from left to right (reduce).
+// 3. checkoutTotal: subtotal → 10 % discount → 19 % VAT, composed only from pipe and the
+//    small Pure Functions.
+// 4. stampOrder reads the clock directly (new Date()) – a side effect right in the core.
+//    Pass the clock in as a parameter so the function becomes pure and testable.
+//    Think about it: why must you never memoize stampOrder?
 //
-// Prüfen: npm test -- js-functional-patterns
+// Check: npm test -- js-functional-patterns
 
 import type { Order, OrderItem } from '#shop'
 
@@ -42,5 +42,5 @@ export const checkoutTotal = (items: readonly OrderItem[]): number => {
   throw new Error('TODO: pipe(applyDiscount(10), addVat(0.19)) auf subtotal anwenden')
 }
 
-// TODO: now als Parameter, z. B. (order, now: () => Date)
+// TODO: now as a parameter, e.g. (order, now: () => Date)
 export const stampOrder = (order: Order): Order => ({ ...order, createdAt: new Date().toISOString() })

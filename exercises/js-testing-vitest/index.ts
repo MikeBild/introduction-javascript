@@ -1,5 +1,5 @@
-// Code unter Test für die Lektion js-testing-vitest.
-// Hier musst du nichts ändern – deine Aufgabe steht in index.test.ts.
+// Code under test for the lesson js-testing-vitest.
+// You do not need to change anything here – your exercise is in index.test.ts.
 
 import type { Order, Product } from '#shop'
 
@@ -16,7 +16,7 @@ export const placeOrder = async (order: Order, products: readonly Product[]): Pr
   return { ...order, status: 'placed' }
 }
 
-// Fragt alle 3 Sekunden nach, ob die Zahlung da ist – höchstens maxAttempts Mal.
+// Asks every 3 seconds whether the payment has arrived – at most maxAttempts times.
 export const waitForPayment = async (
   isPaid: () => Promise<boolean>,
   { intervalMs = 3000, maxAttempts = 3 } = {},

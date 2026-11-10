@@ -1,17 +1,17 @@
-// Lektion js-async-advanced: Async-Arbeit abbrechen, begrenzen und streamen
-// Dauer: etwa 25 Minuten
+// Lesson js-async-advanced: Cancel, limit, and stream async work
+// Duration: about 25 minutes
 //
-// Aufgabe
-// 1. tick(items, intervalMs, signal?): Async-Generator, der pro Tick eine Bestellung liefert.
-//    Nutze setInterval aus node:timers/promises mit for await und einen eigenen
-//    AbortController, den du nach dem letzten Element abbrichst. Ein äußeres signal
-//    beendet den Generator vorzeitig (AbortSignal.any).
-// 2. mapWithLimit(items, limit, fn): verarbeitet alle items, aber nie mehr als limit
-//    gleichzeitig. Die Reihenfolge des Ergebnisses entspricht der Eingabe.
-// 3. withTimeout(fn, ms): gibt fn ein AbortSignal.timeout(ms) mit. Läuft die Zeit ab,
-//    rejected das Promise mit einem Fehler namens 'TimeoutError'.
+// Exercise
+// 1. tick(items, intervalMs, signal?): async generator that yields one order per tick.
+//    Use setInterval from node:timers/promises with for await and your own
+//    AbortController, which you abort after the last element. An outer signal
+//    ends the generator early (AbortSignal.any).
+// 2. mapWithLimit(items, limit, fn): processes all items, but never more than limit
+//    at the same time. The order of the result matches the input.
+// 3. withTimeout(fn, ms): passes an AbortSignal.timeout(ms) to fn. When the time runs out,
+//    the Promise rejects with an error named 'TimeoutError'.
 //
-// Prüfen: npm test -- js-async-advanced
+// Check: npm test -- js-async-advanced
 
 export async function* tick<Item>(items: readonly Item[], intervalMs: number, signal?: AbortSignal): AsyncGenerator<Item> {
   throw new Error('TODO: setInterval aus node:timers/promises mit for await')
@@ -22,7 +22,7 @@ export const mapWithLimit = async <Item, Value>(
   limit: number,
   fn: (item: Item) => Promise<Value>,
 ): Promise<Value[]> => {
-  return Promise.all(items.map(fn)) // TODO: startet alle auf einmal – begrenzen
+  return Promise.all(items.map(fn)) // TODO: starts all at once – limit it
 }
 
 export const withTimeout = async <Value>(fn: (signal: AbortSignal) => Promise<Value>, ms: number): Promise<Value> => {

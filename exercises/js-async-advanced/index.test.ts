@@ -5,19 +5,19 @@ import { mapWithLimit, tick, withTimeout } from '#ex/js-async-advanced'
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 describe('tick', () => {
-  it('liefert pro Tick eine Bestellung und endet nach der letzten', async () => {
+  it('yields one order per tick and ends after the last one', async () => {
     const ids: string[] = []
     for await (const order of tick(orders(), 5)) ids.push(order.id)
     expect(ids).toEqual(['o-1', 'o-2', 'o-3', 'o-4'])
   })
-  it('wartet zwischen den Ticks', async () => {
+  it('waits between ticks', async () => {
     const started = performance.now()
     for await (const _ of tick([1, 2, 3], 20)) {
-      // nur zählen
+      // just count
     }
     expect(performance.now() - started).toBeGreaterThanOrEqual(50)
   })
-  it('lässt sich von außen abbrechen', async () => {
+  it('can be aborted from outside', async () => {
     const controller = new AbortController()
     const ids: string[] = []
     for await (const order of tick(orders(), 5, controller.signal)) {
@@ -29,13 +29,13 @@ describe('tick', () => {
 })
 
 describe('mapWithLimit', () => {
-  it('hält das Limit ein und behält die Reihenfolge', async () => {
+  it('respects the limit and keeps the order', async () => {
     let running = 0
     let maxRunning = 0
     const loadStock = async (id: number) => {
       running++
       maxRunning = Math.max(maxRunning, running)
-      await sleep(10 - id) // spätere sind schneller fertig
+      await sleep(10 - id) // later ones finish faster
       running--
       return id * 10
     }
@@ -46,10 +46,10 @@ describe('mapWithLimit', () => {
 })
 
 describe('withTimeout', () => {
-  it('liefert das Ergebnis, wenn es schnell genug ist', async () => {
+  it('returns the result when it is fast enough', async () => {
     await expect(withTimeout(async () => 'paid', 50)).resolves.toBe('paid')
   })
-  it('bricht nach der Zeit ab und gibt das Signal weiter', async () => {
+  it('aborts after the time and passes the signal on', async () => {
     let receivedSignal: AbortSignal | undefined
     const slow = (signal: AbortSignal) => {
       receivedSignal = signal

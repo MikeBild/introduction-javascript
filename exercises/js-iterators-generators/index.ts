@@ -1,15 +1,15 @@
-// Lektion js-iterators-generators: Generators liefern Werte erst auf Nachfrage
-// Dauer: etwa 20 Minuten
+// Lesson js-iterators-generators: Generators produce values only on demand
+// Duration: about 20 minutes
 //
-// Aufgabe
-// 1. naturals(): unendlicher Generator 1, 2, 3, … (function* mit while (true)).
-// 2. firstEvenSquares(n): filter (gerade) und map (Quadrat) lazy per Iterator Helpers,
-//    dann take(n) und toArray(). Ohne take würde das nie enden.
-// 3. allOrders(fetchPage): Async-Generator, der eine paginierte API Seite für Seite
-//    abfragt (cursor → next) und jede Bestellung einzeln liefert. Er stoppt, wenn next fehlt.
-//    Aufrufer lesen ihn mit for await … of.
+// Exercise
+// 1. naturals(): infinite generator 1, 2, 3, … (function* with while (true)).
+// 2. firstEvenSquares(n): filter (even) and map (square) lazily via iterator helpers,
+//    then take(n) and toArray(). Without take this would never end.
+// 3. allOrders(fetchPage): async generator that queries a paginated API page by page
+//    (cursor → next) and yields every order one at a time. It stops when next is missing.
+//    Callers read it with for await … of.
 //
-// Prüfen: npm test -- js-iterators-generators
+// Check: npm test -- js-iterators-generators
 
 import type { Order } from '#shop'
 

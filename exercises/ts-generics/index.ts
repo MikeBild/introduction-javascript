@@ -1,15 +1,15 @@
-// Lektion ts-generics: Generics erhalten, was any wegwirft
-// Dauer: etwa 20 Minuten
+// Lesson ts-generics: Generics preserve what any throws away
+// Duration: about 20 minutes
 //
-// Aufgabe: Die Funktionen laufen, aber any wirft jede Type-Information weg.
-// Schreib sie als Generic Functions ohne any:
-// 1. last<Item>(items): letztes Element oder undefined.
+// Exercise: The functions work, but any throws away all type information.
+// Write them as generic functions without any:
+// 1. last<Item>(items): last element or undefined.
 // 2. groupBy<Item, Key extends PropertyKey>(items, keyOf): Partial<Record<Key, Item[]>>,
-//    z. B. Bestellungen nach Status gruppieren.
-// 3. mapResult: wendet fn nur auf ein erfolgreiches Result an, Fehler bleiben unverändert.
-// Die Tests sichern jede Signatur mit expectTypeOf ab.
+//    e.g. group orders by status.
+// 3. mapResult: applies fn only to a successful Result, failures stay unchanged.
+// The tests pin down every signature with expectTypeOf.
 //
-// Prüfen: npm test -- ts-generics und npm run typecheck:start
+// Check: npm test -- ts-generics and npm run typecheck:start
 
 export type Result<Value, Failure> = { ok: true; value: Value } | { ok: false; error: Failure }
 

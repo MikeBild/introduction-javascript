@@ -1,11 +1,11 @@
 import { defineConfig } from 'vitest/config'
 
-// Dieselben Tests laufen gegen deinen Startpunkt oder gegen die Lösung:
-//   npm test                 → exercises/<lektion>/index.ts
-//   npm run test:solution    → exercises/<lektion>/solution/index.ts
-// (alternativ: TARGET=solution npx vitest run)
-// Die Tests importieren '#ex/<lektion>'. Die "imports" in der package.json lösen das über die
-// Condition "solution" auf die Lösung auf, sonst auf den Startpunkt.
+// The same tests run against your starting point or against the solution:
+//   npm test                 → exercises/<lesson>/index.ts
+//   npm run test:solution    → exercises/<lesson>/solution/index.ts
+// (alternatively: TARGET=solution npx vitest run)
+// The tests import '#ex/<lesson>'. The "imports" in package.json resolve that to the solution
+// via the condition "solution", otherwise to the starting point.
 export default defineConfig(({ mode }) => {
   const solution = process.env.TARGET === 'solution' || mode === 'solution'
   const conditions = [...(solution ? ['solution'] : []), 'node', 'import', 'default']

@@ -1,35 +1,35 @@
-// Lektion js-testing-vitest: Mit Vitest Behavior testen statt Details
-// Dauer: etwa 25 Minuten
+// Lesson js-testing-vitest: Test behavior with Vitest, not details
+// Duration: about 25 minutes
 //
-// Aufgabe: Schreib die Tests für index.ts. Ersetze jedes it.todo durch einen echten Test.
-// - Teste Behavior (Ergebnis, Fehler), nicht wie die Funktion intern arbeitet.
-// - Async: await expect(…).resolves / .rejects.toThrow('…') statt done-Callbacks.
-// - waitForPayment wartet echte 3 Sekunden. Nutze Fake Timers:
-//   vi.useFakeTimers() und await vi.advanceTimersByTimeAsync(3000).
-// Eine Lösung steht in solution/index.test.ts.
+// Exercise: Write the tests for index.ts. Replace every it.todo with a real test.
+// - Test behavior (result, errors), not how the function works internally.
+// - Async: await expect(…).resolves / .rejects.toThrow('…') instead of done callbacks.
+// - waitForPayment waits a real 3 seconds. Use fake timers:
+//   vi.useFakeTimers() and await vi.advanceTimersByTimeAsync(3000).
+// A solution is in solution/index.test.ts.
 //
-// Prüfen: npm test -- js-testing-vitest
+// Check: npm test -- js-testing-vitest
 
 import { describe, expect, it } from 'vitest'
 import { orders } from '#shop'
 import { orderTotal } from './index.ts'
 
 describe('orderTotal', () => {
-  it('summiert quantity × priceCents', () => {
+  it('sums quantity × priceCents', () => {
     const [first] = orders()
     expect(orderTotal(first!)).toBe(3397)
   })
-  it.todo('liefert 0 für eine Bestellung ohne Positionen')
+  it.todo('returns 0 for an order without line items')
 })
 
 describe('placeOrder', () => {
-  it.todo('setzt eine draft-Bestellung auf placed')
-  it.todo('lehnt eine Bestellung ohne Positionen ab')
-  it.todo('lehnt eine Bestellung ab, wenn der Bestand nicht reicht')
-  it.todo('lehnt eine Bestellung ab, die nicht im Status draft ist')
+  it.todo('sets a draft order to placed')
+  it.todo('rejects an order without line items')
+  it.todo('rejects an order when the stock is not sufficient')
+  it.todo('rejects an order that is not in status draft')
 })
 
 describe('waitForPayment', () => {
-  it.todo('liefert paid, sobald die Zahlung da ist – ohne echte Wartezeit')
-  it.todo('gibt nach drei Versuchen auf')
+  it.todo('returns paid as soon as the payment arrives – without real waiting')
+  it.todo('gives up after three attempts')
 })

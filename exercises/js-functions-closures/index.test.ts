@@ -2,11 +2,11 @@ import { describe, expect, it } from 'vitest'
 import { createIdGenerator, lineTotal, partial, withVat } from '#ex/js-functions-closures'
 
 describe('createIdGenerator', () => {
-  it('zählt pro Aufruf hoch', () => {
+  it('counts up on every call', () => {
     const nextOrderId = createIdGenerator('o')
     expect([nextOrderId(), nextOrderId(), nextOrderId()]).toEqual(['o-1', 'o-2', 'o-3'])
   })
-  it('jeder Generator hat seinen eigenen Zähler', () => {
+  it('each generator has its own counter', () => {
     const nextOrderId = createIdGenerator('o')
     const nextProductId = createIdGenerator('p')
     nextOrderId()
@@ -16,7 +16,7 @@ describe('createIdGenerator', () => {
 })
 
 describe('withVat', () => {
-  it('rechnet brutto in ganzen Cent', () => {
+  it('calculates gross in whole cents', () => {
     const germanVat = withVat(0.19)
     expect(germanVat(1000)).toBe(1190)
     expect(germanVat(1299)).toBe(1546)
@@ -25,7 +25,7 @@ describe('withVat', () => {
 })
 
 describe('partial', () => {
-  it('fixiert das erste Argument', () => {
+  it('fixes the first argument', () => {
     const threeTimes = partial(lineTotal, 3)
     expect(threeTimes(1299)).toBe(3897)
     expect(threeTimes(100)).toBe(300)

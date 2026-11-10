@@ -1,16 +1,16 @@
-// Lektion ts-runtime-validation: zod prüft, was Types nicht sehen
-// Dauer: etwa 20 Minuten
+// Lesson ts-runtime-validation: zod checks what types cannot see
+// Duration: about 20 minutes
 //
-// Aufgabe: Ein Request Body kommt als String von außen. TypeScript sieht ihn nicht –
-// zod prüft ihn zur Laufzeit. Das Schema ist dasselbe, das später Frontend und Backend teilen.
-// 1. Erweitere PlaceOrderInput um items: mindestens eine Position (OrderItemInput).
-// 2. Unbekannte Keys sollen abgelehnt werden: z.strictObject statt z.object.
-// 3. handlePlaceOrder antwortet bei kaputtem JSON mit 400 und error 'INVALID_JSON',
-//    bei ungültigen Daten mit 400, error 'VALIDATION_FAILED' und den Pfaden der
-//    fehlerhaften Felder (z. B. 'items.0.quantity'). Gültige Daten → 201 mit dem Input.
-//    Nutze safeParse statt parse, damit nichts wirft.
+// Exercise: A request body arrives as a string from outside. TypeScript does not see it –
+// zod checks it at runtime. The schema is the same one that frontend and backend share later.
+// 1. Extend PlaceOrderInput with items: at least one line item (OrderItemInput).
+// 2. Unknown keys should be rejected: z.strictObject instead of z.object.
+// 3. handlePlaceOrder answers broken JSON with 400 and error 'INVALID_JSON',
+//    invalid data with 400, error 'VALIDATION_FAILED' and the paths of the
+//    invalid fields (e.g. 'items.0.quantity'). Valid data → 201 with the input.
+//    Use safeParse instead of parse so that nothing throws.
 //
-// Prüfen: npm test -- ts-runtime-validation und npm run typecheck:start
+// Check: npm test -- ts-runtime-validation and npm run typecheck:start
 
 import { z } from 'zod'
 
@@ -30,6 +30,6 @@ export type HttpResult =
   | { status: 400; body: { error: 'INVALID_JSON' | 'VALIDATION_FAILED'; issues?: string[] } }
 
 export const handlePlaceOrder = (rawBody: string): HttpResult => {
-  const input = PlaceOrderInput.parse(JSON.parse(rawBody)) // TODO: wirft bei jedem Fehler
+  const input = PlaceOrderInput.parse(JSON.parse(rawBody)) // TODO: throws on every error
   return { status: 201, body: input }
 }

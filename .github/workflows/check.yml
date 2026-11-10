@@ -15,7 +15,7 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
-      - name: Typecheck (Lösungen und Tests)
+      - name: Typecheck (solutions and tests)
         run: npm run typecheck
-      - name: Tests gegen die Lösungen
+      - name: Tests against the solutions
         run: npm run test:solution

@@ -5,27 +5,27 @@ import { orderTotal, placeOrder, waitForPayment } from '../index.ts'
 const draft = (): Order => orders().find((order) => order.status === 'draft')!
 
 describe('orderTotal', () => {
-  it('summiert quantity × priceCents', () => {
+  it('sums quantity × priceCents', () => {
     const [first] = orders()
     expect(orderTotal(first!)).toBe(3397)
   })
-  it('liefert 0 für eine Bestellung ohne Positionen', () => {
+  it('returns 0 for an order without line items', () => {
     expect(orderTotal({ ...draft(), items: [] })).toBe(0)
   })
 })
 
 describe('placeOrder', () => {
-  it('setzt eine draft-Bestellung auf placed', async () => {
+  it('sets a draft order to placed', async () => {
     await expect(placeOrder(draft(), products())).resolves.toMatchObject({ id: 'o-3', status: 'placed' })
   })
-  it('lehnt eine Bestellung ohne Positionen ab', async () => {
+  it('rejects an order without line items', async () => {
     await expect(placeOrder({ ...draft(), items: [] }, products())).rejects.toThrow('keine Positionen')
   })
-  it('lehnt eine Bestellung ab, wenn der Bestand nicht reicht', async () => {
+  it('rejects an order when the stock is not sufficient', async () => {
     const order = { ...draft(), items: [{ productId: 'p-3', quantity: 1, priceCents: 799 }] }
     await expect(placeOrder(order, products())).rejects.toThrow('Nicht genug Bestand: p-3')
   })
-  it('lehnt eine Bestellung ab, die nicht im Status draft ist', async () => {
+  it('rejects an order that is not in status draft', async () => {
     await expect(placeOrder({ ...draft(), status: 'paid' }, products())).rejects.toThrow('nicht im Status draft')
   })
 })
@@ -38,17 +38,17 @@ describe('waitForPayment', () => {
     vi.useRealTimers()
   })
 
-  it('liefert paid, sobald die Zahlung da ist – ohne echte Wartezeit', async () => {
+  it('returns paid as soon as the payment arrives – without real waiting', async () => {
     const isPaid = vi.fn<() => Promise<boolean>>().mockResolvedValueOnce(false).mockResolvedValueOnce(true)
     const result = waitForPayment(isPaid)
     await vi.advanceTimersByTimeAsync(6000)
     await expect(result).resolves.toBe('paid')
     expect(isPaid).toHaveBeenCalledTimes(2)
   })
-  it('gibt nach drei Versuchen auf', async () => {
+  it('gives up after three attempts', async () => {
     const isPaid = vi.fn(async () => false)
     const result = waitForPayment(isPaid)
-    const assertion = expect(result).rejects.toThrow('Zahlung nicht eingegangen') // vor dem Vorspulen anhängen
+    const assertion = expect(result).rejects.toThrow('Zahlung nicht eingegangen') // attach before fast-forwarding
     await vi.advanceTimersByTimeAsync(9000)
     await assertion
     expect(isPaid).toHaveBeenCalledTimes(3)

@@ -1,5 +1,5 @@
 export const createIdGenerator = (prefix: string): (() => string) => {
-  let counter = 0 // lebt in der Closure, von außen nicht erreichbar
+  let counter = 0 // lives in the closure, not reachable from outside
   return () => `${prefix}-${++counter}`
 }
 

@@ -1,14 +1,14 @@
-// Lektion js-functions-closures: Was merkt sich eine Closure?
-// Dauer: etwa 15 Minuten
+// Lesson js-functions-closures: What does a closure remember?
+// Duration: about 15 minutes
 //
-// Aufgabe: Schreib die Funktionen als Closures mit const und Arrow Functions.
-// 1. createIdGenerator('o') liefert eine Funktion, die 'o-1', 'o-2', … erzeugt.
-//    Jeder Generator zählt für sich.
-// 2. withVat(0.19) liefert eine Funktion netCents → Bruttopreis in ganzen Cent (Curry).
-// 3. partial(fn, a) fixiert das erste Argument einer zweistelligen Funktion
-//    (Partial Application), z. B. partial(lineTotal, 3) → priceCents => 3 * priceCents.
+// Exercise: Write the functions as closures with const and arrow functions.
+// 1. createIdGenerator('o') returns a function that produces 'o-1', 'o-2', …
+//    Each generator counts on its own.
+// 2. withVat(0.19) returns a function netCents → gross price in whole cents (currying).
+// 3. partial(fn, a) fixes the first argument of a two-argument function
+//    (partial application), e.g. partial(lineTotal, 3) → priceCents => 3 * priceCents.
 //
-// Prüfen: npm test -- js-functions-closures
+// Check: npm test -- js-functions-closures
 
 export const createIdGenerator = (prefix: string): (() => string) => {
   throw new Error('TODO: Zähler in der Closure merken')

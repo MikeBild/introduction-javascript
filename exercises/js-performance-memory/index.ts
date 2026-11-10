@@ -1,15 +1,15 @@
-// Lektion js-performance-memory: Erst messen, dann optimieren
-// Dauer: etwa 20 Minuten
+// Lesson js-performance-memory: Measure first, then optimize
+// Duration: about 20 minutes
 //
-// Aufgabe: memoize cacht jedes Argument für immer. Bei vielen verschiedenen Eingaben
-// (z. B. Preisberechnung pro Warenkorb) wächst der Heap ohne Grenze.
-// 1. Miss es: node --expose-gc exercises/js-performance-memory/measure.ts
-// 2. Begrenze den Cache auf maxEntries (LRU): Eine Map behält die Einfügereihenfolge.
-//    Bei einem Treffer den Eintrag löschen und neu setzen (wird „frisch“), bei vollem
-//    Cache den ältesten Eintrag (map.keys().next().value) entfernen.
-// 3. Miss noch einmal und vergleiche.
+// Exercise: memoize caches every argument forever. With many different inputs
+// (e.g. price calculation per cart) the heap grows without limit.
+// 1. Measure it: node --expose-gc exercises/js-performance-memory/measure.ts
+// 2. Limit the cache to maxEntries (LRU): a Map keeps its insertion order.
+//    On a hit, delete the entry and set it again (it becomes “fresh”); when the cache
+//    is full, remove the oldest entry (map.keys().next().value).
+// 3. Measure again and compare.
 //
-// Prüfen: npm test -- js-performance-memory
+// Check: npm test -- js-performance-memory
 
 export type Memoized<Arg, Value> = ((arg: Arg) => Value) & { readonly cache: Map<Arg, Value> }
 
@@ -18,7 +18,7 @@ export const memoize = <Arg, Value>(fn: (arg: Arg) => Value, maxEntries: number)
   const memoized = (arg: Arg): Value => {
     if (cache.has(arg)) return cache.get(arg) as Value
     const value = fn(arg)
-    cache.set(arg, value) // TODO: maxEntries beachten, Treffer auffrischen
+    cache.set(arg, value) // TODO: respect maxEntries, refresh hits
     return value
   }
   return Object.assign(memoized, { cache })

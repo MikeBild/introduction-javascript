@@ -1,20 +1,20 @@
-// Lektion ts-library-design: APIs, die falsche Aufrufe unmöglich machen
-// Dauer: etwa 25 Minuten
+// Lesson ts-library-design: APIs that make wrong calls impossible
+// Duration: about 25 minutes
 //
-// Aufgabe: createClient ist die Public API eines kleinen Shop-API-Clients.
-// 1. Ergänze in RetryOptions die Variante
-//    { strategy: 'exponential'; baseDelayMs: number; maxAttempts: number }.
-//    retryDelays liefert dafür baseDelayMs × 2^i, z. B. [100, 200, 400].
-// 2. Fehlbedienung soll nicht kompilieren – die Tests sichern das mit @ts-expect-error ab:
-//    createClient ohne baseUrl, exponential ohne baseDelayMs, fixed mit baseDelayMs.
-// 3. defineRoutes soll die Literal Types der Pfade behalten (const Type Parameter),
-//    damit routes.order den Type '/orders/:orderId' hat statt string.
-// 4. Bonus: Erzeuge die Type Declarations und schau sie dir an:
+// Exercise: createClient is the public API of a small shop API client.
+// 1. Add the variant
+//    { strategy: 'exponential'; baseDelayMs: number; maxAttempts: number } to RetryOptions.
+//    retryDelays returns baseDelayMs × 2^i for it, e.g. [100, 200, 400].
+// 2. Misuse should not compile – the tests pin that down with @ts-expect-error:
+//    createClient without baseUrl, exponential without baseDelayMs, fixed with baseDelayMs.
+// 3. defineRoutes should keep the literal types of the paths (const type parameter)
+//    so that routes.order has the type '/orders/:orderId' instead of string.
+// 4. Bonus: generate the type declarations and look at them:
 //    npx tsc exercises/ts-library-design/solution/index.ts --declaration --emitDeclarationOnly
 //      --allowImportingTsExtensions --outDir dist
-//    Lies dist/index.d.ts: Das ist alles, was Nutzende deiner Library sehen.
+//    Read dist/index.d.ts: that is all the users of your library see.
 //
-// Prüfen: npm test -- ts-library-design und npm run typecheck:start
+// Check: npm test -- ts-library-design and npm run typecheck:start
 
 export type RetryOptions = { strategy: 'none' } | { strategy: 'fixed'; delayMs: number; attempts: number }
 // TODO: exponential
@@ -46,4 +46,4 @@ export const createClient = (options: ClientOptions): Client => ({
   retryDelays: retryDelays(options.retry ?? { strategy: 'none' }),
 })
 
-export const defineRoutes = (routes: Record<string, string>) => routes // TODO: const Type Parameter
+export const defineRoutes = (routes: Record<string, string>) => routes // TODO: const type parameter

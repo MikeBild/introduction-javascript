@@ -1,7 +1,7 @@
 import type { Customer, Order, Product } from './domain.ts'
 
-// Beispieldaten. Die Funktionen liefern immer frische Kopien,
-// damit kein Test die Daten eines anderen verändert.
+// Sample data. The functions always return fresh copies
+// so that no test changes the data of another one.
 
 export const products = (): Product[] => [
   { id: 'p-1', name: 'Hammer', priceCents: 1299, stock: 12 },

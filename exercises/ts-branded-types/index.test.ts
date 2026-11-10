@@ -13,17 +13,17 @@ import {
 } from '#ex/ts-branded-types'
 
 describe('IDs', () => {
-  it('vertauschte IDs kompilieren nicht', () => {
+  it('swapped IDs do not compile', () => {
     const orderId = toOrderId('o-7')
     const customerId = toCustomerId('c-42')
     expect(cancelOrder(customerId, orderId)).toBe('c-42 storniert o-7')
-    // @ts-expect-error OrderId ist keine CustomerId
+    // @ts-expect-error OrderId is not a CustomerId
     cancelOrder(orderId, customerId)
   })
 })
 
 describe('Smart Constructors', () => {
-  it('prüfen ihre Eingabe', () => {
+  it('check their input', () => {
     expect(toCents(1299)).toBe(1299)
     expect(() => toCents(12.99)).toThrow(RangeError)
     expect(() => toCents(-1)).toThrow(RangeError)
@@ -33,32 +33,32 @@ describe('Smart Constructors', () => {
     expect(() => toEmail('ada.example.org')).toThrow(RangeError)
     expect(() => toEmail('a@b@c')).toThrow(RangeError)
   })
-  it('rechnen Euro in Cents um', () => {
+  it('convert euros to cents', () => {
     expect(euroToCents(toEuro(19.99))).toBe(1999)
     expectTypeOf(euroToCents(toEuro(1))).toEqualTypeOf<Cents>()
   })
 })
 
 describe('addVat', () => {
-  it('rechnet mit Cents', () => {
+  it('calculates with Cents', () => {
     expect(addVat(toCents(1000), 0.19)).toBe(1190)
   })
-  it('nimmt keine Euro und keine nackten Zahlen', () => {
-    // @ts-expect-error Euro ist nicht Cents
+  it('accepts neither Euro nor bare numbers', () => {
+    // @ts-expect-error Euro is not Cents
     addVat(toEuro(19.99), 0.19)
-    // @ts-expect-error eine nackte number ist nicht Cents
+    // @ts-expect-error a bare number is not Cents
     addVat(1999, 0.19)
   })
 })
 
 describe('OrderIdSchema', () => {
-  it('prüft und brandet mit zod', () => {
+  it('checks and brands with zod', () => {
     expect(OrderIdSchema.parse('o-7')).toBe('o-7')
     expect(OrderIdSchema.safeParse('x-7').success).toBe(false)
   })
-  it('liefert einen gebrandeten Type', () => {
+  it('returns a branded type', () => {
     const parsed = OrderIdSchema.parse('o-7')
-    // @ts-expect-error ein nackter String ist keine geprüfte OrderId
+    // @ts-expect-error a bare string is not a checked OrderId
     const unchecked: typeof parsed = 'o-8'
     expect(unchecked).toBe('o-8')
   })

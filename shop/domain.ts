@@ -1,7 +1,7 @@
-// Werkstatt-Shop: das durchgehende Beispiel aller Workshops.
-// Geld immer als ganze Cent (priceCents), nie als Kommazahl.
-// Die IDs sind hier noch einfache Strings – in der Lektion ts-branded-types
-// machst du daraus Branded Types, damit niemand OrderId und CustomerId vertauscht.
+// Workshop shop: the running example of all workshops.
+// Money is always whole cents (priceCents), never a decimal.
+// The IDs are still plain strings here – in the lesson ts-branded-types
+// you turn them into Branded Types so nobody mixes up OrderId and CustomerId.
 
 export type ProductId = string
 export type OrderId = string
@@ -17,7 +17,7 @@ export type Product = {
 export type OrderItem = {
   productId: ProductId
   quantity: number // ≥ 1
-  priceCents: number // Preis pro Stück zum Bestellzeitpunkt
+  priceCents: number // unit price at the time of the order
 }
 
 export const ORDER_STATUSES = ['draft', 'placed', 'paid', 'shipped', 'cancelled'] as const

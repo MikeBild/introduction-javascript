@@ -3,17 +3,17 @@ import { orders, type Order } from '#shop'
 import { allOrders, firstEvenSquares, naturals, type Page } from '#ex/js-iterators-generators'
 
 describe('naturals', () => {
-  it('liefert 1, 2, 3, … auf Nachfrage', () => {
+  it('produces 1, 2, 3, … on demand', () => {
     const numbers = naturals()
     expect([numbers.next().value, numbers.next().value, numbers.next().value]).toEqual([1, 2, 3])
   })
 })
 
 describe('firstEvenSquares', () => {
-  it('liefert die Quadrate der ersten geraden Zahlen', () => {
+  it('returns the squares of the first even numbers', () => {
     expect(firstEvenSquares(4)).toEqual([4, 16, 36, 64])
   })
-  it('arbeitet lazy – auch bei großen Mengen sofort fertig', () => {
+  it('works lazily – finishes instantly even for large amounts', () => {
     expect(firstEvenSquares(10_000).at(-1)).toBe(20_000 ** 2)
   })
 })
@@ -26,14 +26,14 @@ describe('allOrders', () => {
     'c-3': { items: all.slice(3) },
   }
 
-  it('liest alle Seiten mit for await', async () => {
+  it('reads all pages with for await', async () => {
     const fetchPage = vi.fn(async (cursor?: string) => pages[cursor ?? 'start']!)
     const ids: string[] = []
     for await (const order of allOrders(fetchPage)) ids.push(order.id)
     expect(ids).toEqual(['o-1', 'o-2', 'o-3', 'o-4'])
     expect(fetchPage.mock.calls.map(([cursor]) => cursor)).toEqual([undefined, 'c-2', 'c-3'])
   })
-  it('lädt nur so viele Seiten wie nötig', async () => {
+  it('loads only as many pages as needed', async () => {
     const fetchPage = vi.fn(async (cursor?: string) => pages[cursor ?? 'start']!)
     let first: Order | undefined
     for await (const order of allOrders(fetchPage)) {

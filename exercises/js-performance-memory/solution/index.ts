@@ -5,13 +5,13 @@ export const memoize = <Arg, Value>(fn: (arg: Arg) => Value, maxEntries: number)
   const memoized = (arg: Arg): Value => {
     if (cache.has(arg)) {
       const value = cache.get(arg) as Value
-      cache.delete(arg) // ans Ende verschieben: zuletzt benutzt
+      cache.delete(arg) // move to the end: most recently used
       cache.set(arg, value)
       return value
     }
     const value = fn(arg)
     cache.set(arg, value)
-    if (cache.size > maxEntries) cache.delete(cache.keys().next().value as Arg) // ältester Eintrag
+    if (cache.size > maxEntries) cache.delete(cache.keys().next().value as Arg) // oldest entry
     return value
   }
   return Object.assign(memoized, { cache })

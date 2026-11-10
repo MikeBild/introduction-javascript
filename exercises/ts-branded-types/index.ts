@@ -1,17 +1,17 @@
-// Lektion ts-branded-types: Branded Types verhindern vertauschte IDs
-// Dauer: etwa 20 Minuten
+// Lesson ts-branded-types: Branded types prevent swapped IDs
+// Duration: about 20 minutes
 //
-// Aufgabe: OrderId und CustomerId sind schon Brands – cancelOrder(orderId, customerId)
-// kompiliert nicht mehr. Mach dasselbe für Geld und E-Mail:
-// 1. Cents, Euro und Email als Brands (Brand<number, 'Cents'> usw.).
-// 2. Smart Constructors, die prüfen und erst dann casten:
-//    toCents (ganze Zahl ≥ 0), toEuro (endliche Zahl ≥ 0), toEmail (enthält genau ein @).
-//    Ungültige Werte werfen einen RangeError.
-// 3. euroToCents rechnet Euro in Cents um. addVat nimmt nur Cents – die Tests beweisen
-//    mit @ts-expect-error, dass Euro und nackte Zahlen nicht durchgehen.
-// 4. OrderIdSchema: dieselbe Prüfung wie toOrderId, aber mit zod und .brand<'OrderId'>().
+// Exercise: OrderId and CustomerId are already brands – cancelOrder(orderId, customerId)
+// no longer compiles. Do the same for money and email:
+// 1. Cents, Euro and Email as brands (Brand<number, 'Cents'> etc.).
+// 2. Smart constructors that check first and only then cast:
+//    toCents (integer ≥ 0), toEuro (finite number ≥ 0), toEmail (contains exactly one @).
+//    Invalid values throw a RangeError.
+// 3. euroToCents converts euros to cents. addVat accepts only Cents – the tests prove
+//    with @ts-expect-error that Euro and bare numbers do not get through.
+// 4. OrderIdSchema: the same check as toOrderId, but with zod and .brand<'OrderId'>().
 //
-// Prüfen: npm test -- ts-branded-types und npm run typecheck:start
+// Check: npm test -- ts-branded-types and npm run typecheck:start
 
 import { z } from 'zod'
 
@@ -33,7 +33,7 @@ export const toCustomerId = (raw: string): CustomerId => {
 
 export const cancelOrder = (customerId: CustomerId, orderId: OrderId): string => `${customerId} storniert ${orderId}`
 
-// TODO: als Brands
+// TODO: as brands
 export type Cents = number
 export type Euro = number
 export type Email = string
@@ -56,4 +56,4 @@ export const euroToCents = (euro: Euro): Cents => {
 
 export const addVat = (net: Cents, rate: number): Cents => Math.round(net * (1 + rate))
 
-export const OrderIdSchema = z.string() // TODO: regex und brand
+export const OrderIdSchema = z.string() // TODO: regex and brand

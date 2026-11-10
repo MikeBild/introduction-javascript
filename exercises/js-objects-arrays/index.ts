@@ -1,15 +1,15 @@
-// Lektion js-objects-arrays: Neue Werte erzeugen statt alte ändern
-// Dauer: etwa 20 Minuten
+// Lesson js-objects-arrays: Create new values instead of changing old ones
+// Duration: about 20 minutes
 //
-// Aufgabe: Schreib immutable Updates für den Warenkorb. Nutze Destructuring und Spread,
-// kein push, kein splice, keine Zuweisung an bestehende Objekte. Die Tests frieren
-// den Warenkorb mit Object.freeze ein – jede Mutation wirft dann einen TypeError.
-// 1. addItem: Position hinzufügen; gibt es das Produkt schon, steigt die quantity.
-// 2. setQuantity: Menge einer Position setzen; 0 entfernt die Position.
-// 3. applyCoupon: meta.coupon setzen (verschachteltes Objekt, Ebene für Ebene kopieren).
-// Unveränderte Positionen sollen dieselben Objekte bleiben (Structural Sharing).
+// Exercise: Write immutable updates for the cart. Use destructuring and spread,
+// no push, no splice, no assignment to existing objects. The tests freeze
+// the cart with Object.freeze – every mutation then throws a TypeError.
+// 1. addItem: add a line item; if the product is already there, the quantity goes up.
+// 2. setQuantity: set the quantity of a line item; 0 removes the line item.
+// 3. applyCoupon: set meta.coupon (nested object, copy it level by level).
+// Unchanged line items should stay the same objects (structural sharing).
 //
-// Prüfen: npm test -- js-objects-arrays
+// Check: npm test -- js-objects-arrays
 
 import type { CustomerId, OrderItem, ProductId } from '#shop'
 

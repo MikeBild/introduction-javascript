@@ -1,14 +1,14 @@
-// Lektion js-array-methods: map, filter, reduce statt Loops
-// Dauer: etwa 20 Minuten
+// Lesson js-array-methods: map, filter, reduce instead of loops
+// Duration: about 20 minutes
 //
-// Aufgabe: Werte die Bestellungen ohne for, forEach und ohne Mutation aus.
-// 1. orderTotalCents: Σ quantity × priceCents einer Bestellung (reduce).
-// 2. openOrdersTotal: Summe aller offenen Bestellungen (Status draft oder placed).
-// 3. topSellers: Menge je Produkt über alle nicht stornierten Bestellungen,
-//    absteigend sortiert, bei Gleichstand nach productId; die ersten n Einträge.
-//    Tipp: flatMap, reduce in ein Objekt oder eine Map, toSorted, slice.
+// Exercise: Evaluate the orders without for, forEach and without mutation.
+// 1. orderTotalCents: Σ quantity × priceCents of an order (reduce).
+// 2. openOrdersTotal: sum of all open orders (status draft or placed).
+// 3. topSellers: quantity per product across all orders except those with status cancelled,
+//    sorted descending, ties broken by productId; the first n entries.
+//    Hint: flatMap, reduce into an object or a Map, toSorted, slice.
 //
-// Prüfen: npm test -- js-array-methods
+// Check: npm test -- js-array-methods
 
 import type { Order, ProductId } from '#shop'
 
@@ -19,7 +19,7 @@ export const orderTotalCents = (order: Order): number => {
   for (let index = 0; index < order.items.length; index++) {
     total += order.items[index]!.quantity * order.items[index]!.priceCents
   }
-  return total // TODO: als reduce schreiben
+  return total // TODO: write it as reduce
 }
 
 export const openOrdersTotal = (orders: readonly Order[]): number => {

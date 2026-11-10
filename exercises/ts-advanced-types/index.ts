@@ -1,21 +1,21 @@
-// Lektion ts-advanced-types: Types berechnen, wo es Bugs verhindert
-// Dauer: etwa 25 Minuten
+// Lesson ts-advanced-types: Compute types where they prevent bugs
+// Duration: about 25 minutes
 //
-// Aufgabe
-// 1. Setters<Shape>: Mapped Type mit Key Remapping. Aus { name: string } wird
-//    { setName: (value: string) => void }. Tipp: as `set${Capitalize<Key>}`.
-// 2. IsString verteilt sich über Unions: IsString<string | number> ergibt boolean.
-//    Schreib IsStringStrict, das für string | number false liefert ([Value] extends [string]).
-// 3. RouteParams<'/orders/:orderId/items/:productId'> soll
-//    { orderId: string; productId: string } ergeben (Template Literal Types mit infer).
-//    buildPath setzt die Parameter zur Laufzeit ein.
+// Exercise
+// 1. Setters<Shape>: mapped type with key remapping. { name: string } becomes
+//    { setName: (value: string) => void }. Hint: as `set${Capitalize<Key>}`.
+// 2. IsString distributes over unions: IsString<string | number> gives boolean.
+//    Write IsStringStrict, which returns false for string | number ([Value] extends [string]).
+// 3. RouteParams<'/orders/:orderId/items/:productId'> should give
+//    { orderId: string; productId: string } (template literal types with infer).
+//    buildPath fills in the parameters at runtime.
 //
-// Prüfen: npm test -- ts-advanced-types und npm run typecheck:start
+// Check: npm test -- ts-advanced-types and npm run typecheck:start
 
 export type Setters<Shape> = unknown // TODO
 
 export type IsString<Value> = Value extends string ? true : false
-export type IsStringStrict<Value> = Value extends string ? true : false // TODO: nicht distributiv
+export type IsStringStrict<Value> = Value extends string ? true : false // TODO: not distributive
 
 export type RouteParams<Route extends string> = Record<string, string> // TODO
 

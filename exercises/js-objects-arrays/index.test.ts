@@ -20,37 +20,37 @@ const createCart = (): Cart =>
   })
 
 describe('addItem', () => {
-  it('hängt eine neue Position an', () => {
+  it('appends a new line item', () => {
     const cart = createCart()
     const next = addItem(cart, { productId: 'p-4', quantity: 1, priceCents: 8999 })
     expect(next.items.map((item) => item.productId)).toEqual(['p-1', 'p-2', 'p-4'])
     expect(cart.items).toHaveLength(2)
   })
-  it('erhöht die quantity einer vorhandenen Position', () => {
+  it('increases the quantity of an existing line item', () => {
     const cart = createCart()
     const next = addItem(cart, { productId: 'p-1', quantity: 2, priceCents: 1299 })
     expect(next.items[0]?.quantity).toBe(3)
     expect(next.items).toHaveLength(2)
-    expect(next.items[1]).toBe(cart.items[1]) // unverändert, also dasselbe Objekt
+    expect(next.items[1]).toBe(cart.items[1]) // unchanged, so the same object
   })
 })
 
 describe('setQuantity', () => {
-  it('setzt die Menge', () => {
+  it('sets the quantity', () => {
     const cart = createCart()
     const next = setQuantity(cart, 'p-2', 5)
     expect(next.items[1]?.quantity).toBe(5)
     expect(cart.items[1]?.quantity).toBe(2)
     expect(next.items[0]).toBe(cart.items[0])
   })
-  it('entfernt die Position bei 0', () => {
+  it('removes the line item at 0', () => {
     const next = setQuantity(createCart(), 'p-1', 0)
     expect(next.items.map((item) => item.productId)).toEqual(['p-2'])
   })
 })
 
 describe('applyCoupon', () => {
-  it('setzt den Coupon und lässt das Original unverändert', () => {
+  it('sets the coupon and leaves the original unchanged', () => {
     const cart = createCart()
     const next = applyCoupon(cart, 'WERKSTATT10')
     expect(next.meta).toEqual({ currency: 'EUR', coupon: 'WERKSTATT10' })

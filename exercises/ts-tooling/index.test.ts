@@ -10,13 +10,13 @@ const readConfig = async () => {
 }
 
 describe('tsconfig.exercise.json', () => {
-  it('nutzt ESM für Node', async () => {
+  it('uses ESM for Node', async () => {
     const options = await readConfig()
     expect(String(options.module).toLowerCase()).toBe('nodenext')
     expect(String(options.moduleResolution).toLowerCase()).toBe('nodenext')
     expect(String(options.target).toLowerCase()).toMatch(/^es20(2[2-9]|[3-9]\d)$|^esnext$/)
   })
-  it('ist strikt', async () => {
+  it('is strict', async () => {
     const options = await readConfig()
     expect(options).toMatchObject({
       strict: true,
@@ -30,11 +30,11 @@ describe('tsconfig.exercise.json', () => {
 })
 
 describe('firstItemPrice', () => {
-  it('liefert den Preis der ersten Position', () => {
+  it('returns the price of the first line item', () => {
     const [first] = orders()
     expect(firstItemPrice(first!)).toBe(1299)
   })
-  it('liefert undefined statt eines TypeError, wenn es keine Position gibt', () => {
+  it('returns undefined instead of a TypeError when there is no line item', () => {
     const [first] = orders()
     expect(firstItemPrice({ ...first!, items: [] })).toBeUndefined()
   })

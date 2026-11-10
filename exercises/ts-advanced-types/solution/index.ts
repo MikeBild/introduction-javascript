@@ -3,7 +3,7 @@ export type Setters<Shape> = {
 }
 
 export type IsString<Value> = Value extends string ? true : false
-// Die eckigen Klammern verhindern die Distribution über die Union.
+// The square brackets prevent distribution over the union.
 export type IsStringStrict<Value> = [Value] extends [string] ? true : false
 
 type ParamNames<Route extends string> = Route extends `${string}:${infer Name}/${infer Rest}`

@@ -1,13 +1,13 @@
-// Lektion js-values-types: Wann sind zwei Werte in JavaScript gleich?
-// Dauer: etwa 15 Minuten
+// Lesson js-values-types: When are two values equal in JavaScript?
+// Duration: about 15 minutes
 //
-// Aufgabe
-// 1. readRetries liest die Zahl der Wiederholungen beim Bezahlen. Der Test zeigt:
-//    { retries: 0 } wird zu 3, weil || die 0 als „falsy“ verwirft. Repariere es mit ??.
-// 2. Schreib toCents: "12.99" → 1299. Achtung, 12.99 * 100 ist nicht genau 1299.
-// 3. Schreib isShallowEqual für zwei Produkte: gleiche Keys, Werte per Object.is gleich.
+// Exercise
+// 1. readRetries reads the number of retries for a payment. The test shows:
+//    { retries: 0 } becomes 3 because || discards the 0 as “falsy”. Fix it with ??.
+// 2. Write toCents: "12.99" → 1299. Careful, 12.99 * 100 is not exactly 1299.
+// 3. Write isShallowEqual for two products: same keys, values equal per Object.is.
 //
-// Prüfen: npm test -- js-values-types
+// Check: npm test -- js-values-types
 
 import type { Product } from '#shop'
 

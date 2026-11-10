@@ -1,13 +1,13 @@
-// Lektion ts-objects-unions: Types beschreiben genau die erlaubten Werte
-// Dauer: etwa 20 Minuten
+// Lesson ts-objects-unions: Types describe exactly the allowed values
+// Duration: about 20 minutes
 //
-// Aufgabe
-// 1. Ergänze den Status 'cancelled' in der as-const-Liste. OrderStatus folgt automatisch.
-// 2. Schreib den Type Guard isStatus(value: unknown): value is OrderStatus.
-// 3. Mach tags in TaggedProduct readonly (readonly Property und readonly string[]).
-//    addTag liefert ein neues Produkt; doppelte Tags kommen nicht hinzu.
+// Exercise
+// 1. Add the status 'cancelled' to the as-const list. OrderStatus follows automatically.
+// 2. Write the type guard isStatus(value: unknown): value is OrderStatus.
+// 3. Make tags in TaggedProduct readonly (readonly property and readonly string[]).
+//    addTag returns a new product; duplicate tags are not added.
 //
-// Prüfen: npm test -- ts-objects-unions und npm run typecheck:start
+// Check: npm test -- ts-objects-unions and npm run typecheck:start
 
 import type { Product } from '#shop'
 
@@ -21,6 +21,6 @@ export const isStatus = (value: unknown): boolean => {
 export type TaggedProduct = Product & { tags: string[] }
 
 export const addTag = (product: TaggedProduct, tag: string): TaggedProduct => {
-  product.tags.push(tag) // TODO: ohne Mutation, ohne Duplikate
+  product.tags.push(tag) // TODO: without mutation, without duplicates
   return product
 }

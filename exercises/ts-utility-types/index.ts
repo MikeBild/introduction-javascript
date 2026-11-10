@@ -1,25 +1,25 @@
-// Lektion ts-utility-types: Types ableiten statt kopieren
-// Dauer: etwa 20 Minuten
+// Lesson ts-utility-types: Derive types instead of copying
+// Duration: about 20 minutes
 //
-// Aufgabe: Leite die Varianten von Product ab, statt Felder zu kopieren.
-// 1. ProductPreview = nur id, name, priceCents (Pick). toPreview liefert genau diese drei
-//    Felder – auch zur Laufzeit, ohne stock.
-// 2. ProductPatch = alle Felder außer id, alle optional (Partial + Omit). applyPatch
-//    liefert ein neues Produkt.
-// 3. StockIndex = Record<ProductId, number>, gebaut von stockIndex.
-// 4. StrictOmit<Shape, Key extends keyof Shape>: Omit nimmt jeden String, auch den
-//    Tippfehler 'nmae'. StrictOmit soll ihn als Fehler melden.
+// Exercise: Derive the variants of Product instead of copying fields.
+// 1. ProductPreview = only id, name, priceCents (Pick). toPreview returns exactly these three
+//    fields – at runtime too, without stock.
+// 2. ProductPatch = all fields except id, all optional (Partial + Omit). applyPatch
+//    returns a new product.
+// 3. StockIndex = Record<ProductId, number>, built by stockIndex.
+// 4. StrictOmit<Shape, Key extends keyof Shape>: Omit accepts any string, even the
+//    typo 'nmae'. StrictOmit should report it as an error.
 //
-// Prüfen: npm test -- ts-utility-types und npm run typecheck:start
+// Check: npm test -- ts-utility-types and npm run typecheck:start
 
 import type { Product, ProductId } from '#shop'
 
-// TODO: aus Product ableiten
+// TODO: derive from Product
 export type ProductPreview = { id: string; name: string; priceCents: number; stock?: number }
 export type ProductPatch = { name?: string; priceCents?: number; stock?: number; id?: string }
 export type StockIndex = { [id: string]: number }
 
-// TODO: Key auf keyof Shape einschränken
+// TODO: restrict Key to keyof Shape
 export type StrictOmit<Shape, Key extends PropertyKey> = Omit<Shape, Key>
 
 export const toPreview = (product: Product): ProductPreview => product

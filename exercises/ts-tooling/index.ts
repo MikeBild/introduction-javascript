@@ -1,19 +1,19 @@
-// Lektion ts-tooling: Ein Projekt-Setup, das Stilfragen beendet
-// Dauer: etwa 20 Minuten
+// Lesson ts-tooling: A project setup that ends style debates
+// Duration: about 20 minutes
 //
-// Aufgabe
-// 1. Modernisiere tsconfig.exercise.json (hier im Ordner, eine alte CommonJS-Konfiguration):
-//    target es2025, module und moduleResolution nodenext, strict, noUncheckedIndexedAccess,
-//    erasableSyntaxOnly, verbatimModuleSyntax und noEmit (Node führt .ts direkt aus).
-//    Vergleich mit der tsconfig.json im Wurzelverzeichnis dieses Repos – die nutzt genau das.
-// 2. noUncheckedIndexedAccess macht aus items[0] den Type OrderItem | undefined.
-//    firstItemPrice umgeht das mit !. Entferne das ! und behandle den leeren Fall.
-// 3. Schau dir die Scripts in der package.json an: typecheck, test, check.
-//    Ein check-Script, das lokal und in CI gleich läuft, beendet die Diskussion „bei mir geht’s“.
-//    ESLint und Prettier ergänzt du in deinem Projekt genauso als Scripts; dieses Repo
-//    verzichtet darauf, um mit vier Paketen auszukommen.
+// Exercise
+// 1. Modernize tsconfig.exercise.json (here in this folder, an old CommonJS configuration):
+//    target es2025, module and moduleResolution nodenext, strict, noUncheckedIndexedAccess,
+//    erasableSyntaxOnly, verbatimModuleSyntax and noEmit (Node runs .ts directly).
+//    Compare it with the tsconfig.json in the root of this repo – it uses exactly that.
+// 2. noUncheckedIndexedAccess turns items[0] into the type OrderItem | undefined.
+//    firstItemPrice works around that with !. Remove the ! and handle the empty case.
+// 3. Look at the scripts in package.json: typecheck, test, check.
+//    A check script that runs the same locally and in CI ends the “works on my machine” debate.
+//    You add ESLint and Prettier to your own project as scripts in the same way; this repo
+//    leaves them out to get by with four packages.
 //
-// Prüfen: npm test -- ts-tooling
+// Check: npm test -- ts-tooling
 
 import type { Order } from '#shop'
 

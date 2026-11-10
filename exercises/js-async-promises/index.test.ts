@@ -7,10 +7,10 @@ const file = (name: string) => fileURLToPath(new URL(`./data/${name}.json`, impo
 const paths = ['p-1', 'p-2', 'p-4'].map(file)
 
 describe('readProduct', () => {
-  it('liest und parst eine Datei', async () => {
+  it('reads and parses a file', async () => {
     await expect(readProduct(file('p-1'))).resolves.toMatchObject({ id: 'p-1', priceCents: 1299 })
   })
-  it('liefert ein Promise, das bei fehlender Datei rejected', async () => {
+  it('returns a Promise that rejects when the file is missing', async () => {
     const pending = readProduct(file('gibt-es-nicht'))
     expect(pending).toBeInstanceOf(Promise)
     await expect(pending).rejects.toThrow()
@@ -18,14 +18,14 @@ describe('readProduct', () => {
 })
 
 describe('readAllSequential', () => {
-  it('liest alle Dateien in Reihenfolge', async () => {
+  it('reads all files in order', async () => {
     const products = await readAllSequential(paths)
     expect(products.map((product) => product.id)).toEqual(['p-1', 'p-2', 'p-4'])
   })
 })
 
 describe('readAllParallel', () => {
-  it('startet alle Reads, bevor der erste fertig ist', async () => {
+  it('starts all reads before the first one finishes', async () => {
     let running = 0
     let maxRunning = 0
     const slowRead = async (path: string): Promise<Product> => {
@@ -42,7 +42,7 @@ describe('readAllParallel', () => {
 })
 
 describe('readAllSettled', () => {
-  it('sammelt Erfolge und meldet kaputte Dateien', async () => {
+  it('collects successes and reports broken files', async () => {
     const result = await readAllSettled([file('p-1'), file('broken'), file('p-4')])
     expect(result.products.map((product) => product.id)).toEqual(['p-1', 'p-4'])
     expect(result.failed).toEqual([file('broken')])

@@ -1,9 +1,9 @@
 import type { OrderItem } from '#shop'
 
-// An der Grenze annotiert: Parameter und Return Type
+// Annotated at the boundary: parameter and return type
 export const formatPrice = (cents: number): string => `${(cents / 100).toFixed(2).replace('.', ',')} €`
 
-// Return Type inferiert: number
+// Return type inferred: number
 export const lineTotal = (item: OrderItem) => item.quantity * item.priceCents
 
 export const parseQuantity = (input: unknown): number => {

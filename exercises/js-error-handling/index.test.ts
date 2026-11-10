@@ -3,7 +3,7 @@ import { products } from '#shop'
 import { findProductOrThrow, parseQuantity, ProductNotFoundError, reserve } from '#ex/js-error-handling'
 
 describe('parseQuantity', () => {
-  it('liefert ein Result statt eines Promise', () => {
+  it('returns a Result instead of a Promise', () => {
     expect(parseQuantity('3')).toEqual({ ok: true, value: 3 })
   })
   it.each([
@@ -19,20 +19,20 @@ describe('parseQuantity', () => {
 
 describe('reserve', () => {
   const [hammer, , zollstock] = products()
-  it('zieht Bestand ab', () => {
+  it('deducts stock', () => {
     expect(reserve(hammer!, 2)).toEqual({ ok: true, value: { ...hammer, stock: 10 } })
     expect(hammer!.stock).toBe(12)
   })
-  it('meldet fehlenden Bestand', () => {
+  it('reports missing stock', () => {
     expect(reserve(zollstock!, 1)).toEqual({ ok: false, error: 'OUT_OF_STOCK' })
   })
 })
 
 describe('findProductOrThrow', () => {
-  it('findet vorhandene Produkte', () => {
+  it('finds existing products', () => {
     expect(findProductOrThrow(products(), 'p-2')).toMatchObject({ name: 'Schraubendreher-Set' })
   })
-  it('wirft einen ProductNotFoundError mit productId', () => {
+  it('throws a ProductNotFoundError with productId', () => {
     try {
       findProductOrThrow(products(), 'p-99')
       expect.unreachable()

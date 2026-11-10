@@ -4,7 +4,7 @@ import { handlePlaceOrder, type PlaceOrderInput } from '#ex/ts-runtime-validatio
 const valid = { customerId: 'c-1', items: [{ productId: 'p-1', quantity: 2 }] }
 
 describe('PlaceOrderInput', () => {
-  it('leitet den Type aus dem Schema ab', () => {
+  it('derives the type from the schema', () => {
     expectTypeOf<PlaceOrderInput>().toEqualTypeOf<{
       customerId: string
       items: { productId: string; quantity: number }[]
@@ -13,28 +13,28 @@ describe('PlaceOrderInput', () => {
 })
 
 describe('handlePlaceOrder', () => {
-  it('nimmt gültige Bestellungen an', () => {
+  it('accepts valid orders', () => {
     expect(handlePlaceOrder(JSON.stringify(valid))).toEqual({ status: 201, body: valid })
   })
-  it('antwortet bei kaputtem JSON mit 400', () => {
+  it('answers broken JSON with 400', () => {
     expect(handlePlaceOrder('{"customerId": ')).toEqual({ status: 400, body: { error: 'INVALID_JSON' } })
   })
-  it('verlangt mindestens eine Position', () => {
+  it('requires at least one line item', () => {
     const result = handlePlaceOrder(JSON.stringify({ customerId: 'c-1', items: [] }))
     expect(result).toEqual({ status: 400, body: { error: 'VALIDATION_FAILED', issues: ['items'] } })
   })
-  it('meldet den Pfad fehlerhafter Felder', () => {
+  it('reports the path of invalid fields', () => {
     const body = { customerId: 'c-1', items: [{ productId: 'p-1', quantity: 0 }] }
     expect(handlePlaceOrder(JSON.stringify(body))).toEqual({
       status: 400,
       body: { error: 'VALIDATION_FAILED', issues: ['items.0.quantity'] },
     })
   })
-  it('lehnt unbekannte Keys ab', () => {
+  it('rejects unknown keys', () => {
     const result = handlePlaceOrder(JSON.stringify({ ...valid, discountPercent: 100 }))
     expect(result.status).toBe(400)
   })
-  it('lehnt unbekannte Keys auch in Positionen ab', () => {
+  it('rejects unknown keys in line items too', () => {
     const body = { customerId: 'c-1', items: [{ productId: 'p-1', quantity: 1, priceCents: 1 }] }
     expect(handlePlaceOrder(JSON.stringify(body)).status).toBe(400)
   })

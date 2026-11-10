@@ -32,8 +32,8 @@ const discountThenVat = pipe(applyDiscount(10), addVat(0.19))
 
 export const checkoutTotal = (items: readonly OrderItem[]): number => discountThenVat(subtotal(items))
 
-// Die Uhr kommt von außen: Der Core bleibt pur, der Side Effect sitzt beim Aufrufer.
-// Memoization wäre hier falsch: Gleiche Eingabe, aber jede Uhrzeit ergibt ein anderes Ergebnis.
+// The clock comes from outside: the core stays pure, the side effect sits with the caller.
+// Memoization would be wrong here: same input, but every point in time gives a different result.
 export const stampOrder = (order: Order, now: () => Date = () => new Date()): Order => ({
   ...order,
   createdAt: now().toISOString(),

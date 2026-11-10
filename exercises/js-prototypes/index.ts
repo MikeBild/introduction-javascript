@@ -1,17 +1,17 @@
-// Lektion js-prototypes: Hinter jeder class steht ein Prototyp
-// Dauer: etwa 20 Minuten
+// Lesson js-prototypes: Behind every class is a prototype
+// Duration: about 20 minutes
 //
-// Aufgabe: Bau eine kleine Vererbung ohne class, nur mit Object.create.
-// 1. productProto erbt von entityProto (Object.create) und ergänzt kind = 'Produkt'
-//    und formatPrice(), z. B. '12,99 €'.
-// 2. createProduct(data) erzeugt ein Objekt mit productProto als Prototyp und
-//    kopiert die Daten als eigene Properties hinein.
-// 3. prototypeChain(value) liefert alle Prototypen bis vor null
-//    (Object.getPrototypeOf in einer Schleife).
-// 4. mergeSafe(target, input) kopiert nur eigene Keys und überspringt
-//    '__proto__', 'constructor' und 'prototype' (Prototype Pollution).
+// Exercise: Build a small inheritance without class, only with Object.create.
+// 1. productProto inherits from entityProto (Object.create) and adds kind = 'Produkt'
+//    and formatPrice(), e.g. '12,99 €'.
+// 2. createProduct(data) creates an object with productProto as its prototype and
+//    copies the data into it as own properties.
+// 3. prototypeChain(value) returns all prototypes up to, but not including, null
+//    (Object.getPrototypeOf in a loop).
+// 4. mergeSafe(target, input) copies only own keys and skips
+//    '__proto__', 'constructor' and 'prototype' (prototype pollution).
 //
-// Prüfen: npm test -- js-prototypes
+// Check: npm test -- js-prototypes
 
 import type { Product } from '#shop'
 
@@ -25,7 +25,7 @@ export const entityProto = {
   },
 }
 
-// TODO: Prototyp von productProto soll entityProto sein (Object.create statt Objekt-Literal)
+// TODO: the prototype of productProto should be entityProto (Object.create instead of an object literal)
 export const productProto = {
   kind: 'Produkt',
   formatPrice(this: ProductEntity): string {

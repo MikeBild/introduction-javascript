@@ -1,17 +1,17 @@
-// Lektion js-runtimes: Was läuft in Browser, Node, Deno und Bun?
-// Dauer: etwa 20 Minuten
+// Lesson js-runtimes: What runs in browsers, Node, Deno, and Bun?
+// Duration: about 20 minutes
 //
-// Aufgabe: handle ist ein Core nur aus Web Standards (Request, Response, URL).
-// Er läuft unverändert in Node, Deno, Bun und als Service Worker im Browser.
-// 1. Ergänze die Route GET /health → 200 mit { status: 'ok' }.
-// 2. fetchJson soll nach timeoutMs abbrechen: Gib fetch ein AbortSignal.timeout(timeoutMs)
-//    als signal mit. Der Fehler heißt dann 'TimeoutError'.
-// 3. Starte den Core in verschiedenen Runtimes – nur der Adapter ändert sich:
-//    Node:  node exercises/js-runtimes/serve-node.ts   (dann http://localhost:3000/products)
+// Exercise: handle is a core built only from web standards (Request, Response, URL).
+// It runs unchanged in Node, Deno, Bun and as a service worker in the browser.
+// 1. Add the route GET /health → 200 with { status: 'ok' }.
+// 2. fetchJson should abort after timeoutMs: pass fetch an AbortSignal.timeout(timeoutMs)
+//    as signal. The error is then named 'TimeoutError'.
+// 3. Start the core in different runtimes – only the adapter changes:
+//    Node:  node exercises/js-runtimes/serve-node.ts   (then http://localhost:3000/products)
 //    Deno:  Deno.serve(handle)
 //    Bun:   Bun.serve({ fetch: handle })
 //
-// Prüfen: npm test -- js-runtimes
+// Check: npm test -- js-runtimes
 
 import { products } from '#shop'
 

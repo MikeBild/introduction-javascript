@@ -6,7 +6,7 @@ export const readProduct = async (path: string): Promise<Product> => JSON.parse(
 export const readAllSequential = async (paths: readonly string[]): Promise<Product[]> => {
   const products: Product[] = []
   for (const path of paths) {
-    products.push(await readProduct(path)) // wartet jedes Mal, bevor die nächste Datei startet
+    products.push(await readProduct(path)) // waits every time before the next file starts
   }
   return products
 }

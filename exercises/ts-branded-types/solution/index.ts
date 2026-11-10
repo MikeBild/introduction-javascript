@@ -22,7 +22,7 @@ export type Cents = Brand<number, 'Cents'>
 export type Euro = Brand<number, 'Euro'>
 export type Email = Brand<string, 'Email'>
 
-// Der Cast steht nur in den Smart Constructors – nach der Prüfung.
+// The cast lives only in the smart constructors – after the check.
 export const toCents = (value: number): Cents => {
   if (!Number.isInteger(value) || value < 0) throw new RangeError(`Ungültige Cents: ${value}`)
   return value as Cents

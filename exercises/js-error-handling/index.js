@@ -1,26 +1,26 @@
-// Lektion js-error-handling: Wann wirfst du, wann lieferst du ein Result?
-// Dauer: etwa 20 Minuten
+// Lesson js-error-handling: When do you throw, and when return a result?
+// Duration: about 20 minutes
 //
-// Reines JavaScript, ohne Typen. Ein Result ist per Konvention ein Objekt:
-//   { ok: true, value }   bei Erfolg
-//   { ok: false, error }  bei einem erwartbaren Fehler, error ist ein sprechender Code
+// Plain JavaScript, no types. A Result is an object by convention:
+//   { ok: true, value }   on success
+//   { ok: false, error }  on an expected failure, error is a descriptive code
 //
-// Aufgabe
-// 1. parseQuantity rejected heute mit einem nackten String. Liefere stattdessen ein Result
-//    mit sprechendem Fehlercode: 'NOT_A_NUMBER', 'NOT_AN_INTEGER' oder 'TOO_SMALL'.
-//    Erwartbare Fehler gehören in den Rückgabewert, nicht in throw.
-// 2. reserve zieht Bestand ab und liefert ein Result mit 'OUT_OF_STOCK', wenn er fehlt.
-//    Das übergebene Produkt bleibt unverändert.
-// 3. findProductOrThrow: Ein fehlendes Produkt ist hier ein Programmierfehler.
-//    Wirf einen ProductNotFoundError (extends Error) mit name und productId als Property.
+// Exercise
+// 1. parseQuantity currently rejects with a bare string. Return a Result instead,
+//    with a descriptive error code: 'NOT_A_NUMBER', 'NOT_AN_INTEGER' or 'TOO_SMALL'.
+//    Expected failures belong in the return value, not in throw.
+// 2. reserve deducts stock and returns a Result with 'OUT_OF_STOCK' when stock is missing.
+//    The product passed in stays unchanged.
+// 3. findProductOrThrow: a missing product is a programming error here.
+//    Throw a ProductNotFoundError (extends Error) with name and productId as a property.
 //
-// Prüfen: npm test -- js-error-handling
+// Check: npm test -- js-error-handling
 
 export const parseQuantity = (raw) =>
   new Promise((resolve, reject) => {
     const value = Number(raw)
     if (value > 0) resolve(value)
-    else reject('kaputt') // TODO: kein Promise, kein String – ein Result
+    else reject('kaputt') // TODO: no Promise, no string – a Result
   })
 
 export const reserve = (product, quantity) => {
@@ -28,7 +28,7 @@ export const reserve = (product, quantity) => {
 }
 
 export class ProductNotFoundError extends Error {
-  // TODO: name und productId setzen
+  // TODO: set name and productId
 }
 
 export const findProductOrThrow = (products, productId) => {

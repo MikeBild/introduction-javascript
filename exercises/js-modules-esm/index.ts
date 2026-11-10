@@ -1,16 +1,16 @@
-// Lektion js-modules-esm: ES Modules statt require und Global Scope
-// Dauer: etwa 15 Minuten
+// Lesson js-modules-esm: ES modules instead of require and global scope
+// Duration: about 15 minutes
 //
-// Aufgabe: Alles steckt in einer Datei und wird als ein Default-Objekt exportiert.
-// Teile den Code in ES Modules mit Named Exports auf:
-// 1. money.ts exportiert formatCents.
-// 2. catalog.ts exportiert findProduct und listAvailable und importiert
-//    formatCents aus './money.ts' (mit Dateiendung, wie Node es bei ESM verlangt).
-// 3. index.ts enthält nur noch Re-Exports (export { … } from './money.ts' usw.)
-//    und keinen Default Export mehr.
-// Das Projekt ist schon ESM: Schau dir "type": "module" in der package.json an.
+// Exercise: Everything sits in one file and is exported as one default object.
+// Split the code into ES modules with named exports:
+// 1. money.ts exports formatCents.
+// 2. catalog.ts exports findProduct and listAvailable and imports
+//    formatCents from './money.ts' (with file extension, as Node requires for ESM).
+// 3. index.ts contains only re-exports (export { … } from './money.ts' etc.)
+//    and no default export anymore.
+// The project is already ESM: look at "type": "module" in package.json.
 //
-// Prüfen: npm test -- js-modules-esm
+// Check: npm test -- js-modules-esm
 
 import type { Product, ProductId } from '#shop'
 

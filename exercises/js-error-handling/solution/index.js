@@ -1,4 +1,4 @@
-// Lösung js-error-handling – reines JavaScript, Result per Konvention
+// Solution js-error-handling – plain JavaScript, Result by convention
 
 const ok = (value) => ({ ok: true, value })
 const fail = (error) => ({ ok: false, error })

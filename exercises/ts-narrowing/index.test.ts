@@ -9,15 +9,15 @@ const states: OrdersState[] = [
   { status: 'error', message: 'Timeout' },
 ]
 
-describe('render und icon', () => {
-  it('kennen alle States', () => {
+describe('render and icon', () => {
+  it('know all states', () => {
     expect(states.map(render)).toEqual(['Noch nicht geladen', 'Lädt …', '4 Bestellungen', 'Fehler: Timeout'])
     expect(states.map(icon)).toEqual(['clock', 'spinner', 'check', 'alert'])
   })
 })
 
 describe('isSuccess', () => {
-  it('filtert die erfolgreichen States', () => {
+  it('filters the successful states', () => {
     const successes = states.filter(isSuccess)
     expect(successes).toHaveLength(1)
     expectTypeOf(successes).toEqualTypeOf<SuccessState[]>()
