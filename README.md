@@ -138,11 +138,12 @@ Node 26 runs TypeScript files directly, e.g. `node exercises/js-runtimes/serve-n
 
 ## Workshop and slides
 
-- Workshop: [“Full-stack with TypeScript, Node.js, GraphQL, and React in 6 days”](https://workshops.mikebild.dev/w/fullstack/onsite/)
-- Workshop: [“JavaScript and TypeScript from scratch”](https://workshops.mikebild.dev/w/javascript-typescript/remote/)
-- Workshop: [“TypeScript for JavaScript teams”](https://workshops.mikebild.dev/w/typescript/remote/)
-- Slides: [slides.mikebild.dev/introduction-javascript-typescript](https://slides.mikebild.dev/introduction-javascript-typescript.html)
-- PDF: [slides.mikebild.dev/introduction-javascript-typescript.pdf](https://slides.mikebild.dev/introduction-javascript-typescript.pdf)
+- Workshop (held in German): [“Full-stack with TypeScript, Node.js, GraphQL, and React in 6 days”](https://workshops.mikebild.dev/w/fullstack/onsite/)
+- Workshop (held in German): [“JavaScript and TypeScript from scratch”](https://workshops.mikebild.dev/w/javascript-typescript/remote/)
+- Workshop (held in German): [“TypeScript for JavaScript teams”](https://workshops.mikebild.dev/w/typescript/remote/)
+- Slides: [slides.mikebild.dev/introduction-javascript-typescript.en](https://slides.mikebild.dev/introduction-javascript-typescript.en.html)
+- PDF: [introduction-javascript-typescript.en.pdf](https://objects.upraft.mikebild.info/site-media/mikebild/decks/introduction-javascript-typescript/introduction-javascript-typescript.en.pdf)
+- Video: [introduction-javascript-typescript.en.mp4](https://objects.upraft.mikebild.info/site-media/mikebild/decks/introduction-javascript-typescript/introduction-javascript-typescript.en.mp4)
 
 ## License
 
