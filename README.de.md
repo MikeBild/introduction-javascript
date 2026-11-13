@@ -142,8 +142,8 @@ Node 26 führt TypeScript-Dateien direkt aus, z. B. `node exercises/js-runtimes/
 - Workshop: [„JavaScript und TypeScript von Grund auf“](https://workshops.mikebild.dev/w/javascript-typescript/remote/)
 - Workshop: [„TypeScript für JavaScript-Teams“](https://workshops.mikebild.dev/w/typescript/remote/)
 - Folien: [slides.mikebild.dev/introduction-javascript-typescript](https://slides.mikebild.dev/introduction-javascript-typescript.html)
-- PDF: [introduction-javascript-typescript.pdf](https://objects.upraft.mikebild.info/site-media/mikebild/decks/introduction-javascript-typescript/introduction-javascript-typescript.pdf)
-- Video: [introduction-javascript-typescript.mp4](https://objects.upraft.mikebild.info/site-media/mikebild/decks/introduction-javascript-typescript/introduction-javascript-typescript.mp4)
+- PDF: [introduction-javascript-typescript.pdf](https://media.mikebild.dev/site/mikebild/decks/introduction-javascript-typescript/introduction-javascript-typescript.pdf)
+- Video: [introduction-javascript-typescript.mp4](https://media.mikebild.dev/site/mikebild/decks/introduction-javascript-typescript/introduction-javascript-typescript.mp4)
 
 ## Lizenz
 

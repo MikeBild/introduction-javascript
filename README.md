@@ -142,8 +142,8 @@ Node 26 runs TypeScript files directly, e.g. `node exercises/js-runtimes/serve-n
 - Workshop (held in German): [“JavaScript and TypeScript from scratch”](https://workshops.mikebild.dev/w/javascript-typescript/remote/)
 - Workshop (held in German): [“TypeScript for JavaScript teams”](https://workshops.mikebild.dev/w/typescript/remote/)
 - Slides: [slides.mikebild.dev/introduction-javascript-typescript.en](https://slides.mikebild.dev/introduction-javascript-typescript.en.html)
-- PDF: [introduction-javascript-typescript.en.pdf](https://objects.upraft.mikebild.info/site-media/mikebild/decks/introduction-javascript-typescript/introduction-javascript-typescript.en.pdf)
-- Video: [introduction-javascript-typescript.en.mp4](https://objects.upraft.mikebild.info/site-media/mikebild/decks/introduction-javascript-typescript/introduction-javascript-typescript.en.mp4)
+- PDF: [introduction-javascript-typescript.en.pdf](https://media.mikebild.dev/site/mikebild/decks/introduction-javascript-typescript/introduction-javascript-typescript.en.pdf)
+- Video: [introduction-javascript-typescript.en.mp4](https://media.mikebild.dev/site/mikebild/decks/introduction-javascript-typescript/introduction-javascript-typescript.en.mp4)
 
 ## License
 
